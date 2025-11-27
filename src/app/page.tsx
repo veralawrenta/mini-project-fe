@@ -1,9 +1,13 @@
-import { Button } from "@/components/ui/button";
+import Footer from "./components/Footer";
+import HeroSection from "./components/HeroSection";
+import Navbar from "./components/Navbar";
 
 const Home = () => {
   return (
     <div>
-      <Button>Save</Button>
+      <Navbar />
+      <HeroSection />
+      <Footer />
     </div>
   );
 };
