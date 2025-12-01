@@ -12,25 +12,25 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b shadow-lg">
+    <header className="container mx-auto op-0 z-50 w-full ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-0 lg:max-w-full xl:max-w-[95%]">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
             <Activity className="w-6 h-6 text-[#FFD700]" strokeWidth={3} />
-            <span className="text-xl font-extrabold tracking-wider text-[#1A1A1A]">
-              Vibe<span className="text-[#8A2BE2]">Pulse</span>
+            <span className="text-xl font-extrabold tracking-wider text-accent">
+              Vibe<span className="text-primary">Pulse</span>
             </span>
           </div>
           <nav className="hidden md:flex space-x-6 lg:space-x-8 items-center">
             <Link 
-              href={"/events"}
-              className="text-lg font-semibold transition duration-200"
+              href={"#upcoming-events"}
+              className="text-lg font-semibold transition duration-200 text-accent"
             >
               Find Event
             </Link>
             <Link 
               href={"/organizer/login"}
-              className="flex items-center text-lg font-semibold transition duration-200"
+              className="flex items-center text-lg font-semibold transition duration-200 text-accent"
             >
               <Plus className="w-5 h-5 mr-1" />
               Create Event
@@ -41,9 +41,9 @@ const Navbar = () => {
             <Link
               href={"/signin"} 
               className="flex items-center px-3 py-1.5 text-base font-semibold 
-                          rounded-full transition duration-200"
+                          rounded-full transition duration-200 text-secondary"
             >
-              <LogIn className="w-5 h-5 mr-1" />
+              <LogIn className="w-5 h-5 mr-1 text-secondary" />
               Sign In
             </Link>
             
