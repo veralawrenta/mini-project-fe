@@ -1,50 +1,40 @@
-import { getEvent } from "@/api/get-event";
-import Footer from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
-import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
+"use client";
 
-interface EventDetailProps {
-  params: { id: string };
-}
+import { axiosInstance } from "@/lib/axios";
+import { Events } from "@/types/events";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "next/navigation";
+import EventDetailMain from "./components/EventDetails";
+import EventTicketCard from "./components/TicketCard";
 
-const EventDetail = async ({ params }: EventDetailProps) => {
-  const { id } = await params;
-  const event = await getEvent(id);
+const EventDetailPage = () => {
+  const params = useParams();
+  const eventId = params.id;
+
+  const { data: event, isLoading } = useQuery<Events>({
+    queryKey: ["event", eventId],
+    queryFn: async () => {
+      const res = await axiosInstance.get<Events>(`/events/${eventId}`);
+      return res.data;
+    },
+  });
+
+  if (isLoading || !event) {
+    return <div className="text-center py-20 text-primary font-bold">Loading...</div>;
+  }
+
   return (
-    <div className="bg-black">
-      <Navbar />
+    <div className="container mx-auto px-4 py-12 lg:flex lg:gap-12">
 
-      <div className="container mx-auto p-4 space-y-2">
-        
-        <div className="relative w-full h-[260px] mb-6">
-          <Image
-            src={event.banner}
-            alt="thumbnail"
-            className="object-cover rounded-xl border-2 border-primary"
-            fill
-          />
-        </div>
-        <h1 className="text-4xl font-bold text-secondary">{event.title}</h1>
-        <h3 className="text-2xl font-semibold">{event.date ? new Date(event.date).toLocaleDateString() : "-"}</h3>
-        <h4>
-          {event.startTime} - {event.endTime}
-        </h4>
-        <p>{event.description}</p>
-        <p>{event.venue}</p>
-        <p>
-          {event.address} - {event.city}
-        </p>
-        <p>Seat available: {event.availableSeats}</p>
-        <p className="text-2xl font-semibold text-right">
-          {event.price === 0 ? "FREE" : `IDR ${event.price.toLocaleString()}`}
-        </p>
+      <div className="lg:flex-1">
+        <EventDetailMain event={event} />
       </div>
-      <div>
-        <Footer />
+
+      <div className="lg:w-96 mt-8 lg:mt-0">
+        <EventTicketCard price={event.price} availableSeats={event.availableSeats} />
       </div>
     </div>
   );
 };
 
-export default EventDetail;
+export default EventDetailPage;

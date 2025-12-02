@@ -1,9 +1,7 @@
-
 import { Events } from "@/types/events";
 import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
-
 
 interface EventCardProps {
   event: Events;
@@ -12,18 +10,18 @@ interface EventCardProps {
 const EventCard = ({ event }: EventCardProps) => {
   return (
     <Link href={`/events/${event.id}`}>
-      <div className="border-2 border-muted-foreground bg-muted hover:bg-input rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-[420px]">
-        {event.banner && (
-          <Image
-            width={500}
-            height={300}
-            src={event.banner}
-            alt={event.title}
-            className="p-2 w-full h-48 object-cover"
-          />
-        )}
-        <div className="p-6 flex flex-col grow">
-          <h2 className="text-l md:text-xl font-semibold mb-2 text-primary text-justify line-clamp-2">
+      <div className="border-2 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-[420px]">
+          {event.banner && (
+            <Image
+              width={500}
+              height={300}
+              src={event.banner}
+              alt={event.title}
+              className="p-2 w-full h-48 object-cover hover:scale-110 ease-in duration-150 rounded-xl"
+            />
+          )}
+        <div className="p-2 flex flex-col grow">
+          <h2 className="text-xl md:text-xl font-bold mb-2 line-clamp-2">
             {event.title}
           </h2>
           <p className="text-accent-foreground mb-1 font-semibold">
@@ -32,7 +30,9 @@ const EventCard = ({ event }: EventCardProps) => {
           <p className="mb-1">
             {event.startTime || "-"} - {event.endTime || "-"}
           </p>
-          <p className="text-accent-foreground mb-2 line-clamp-1">{event.venue}</p>
+          <p className="text-accent-foreground mb-2 line-clamp-1">
+            {event.venue}
+          </p>
           <div className="mt-auto flex justify-end">
             <p className="font-bold text-lg text-accent-foreground">
               IDR {event.price.toLocaleString("id-ID")}
