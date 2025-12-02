@@ -17,20 +17,20 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
             <Activity className="w-6 h-6 text-[#FFD700]" strokeWidth={3} />
-            <span className="text-xl font-extrabold tracking-wider text-accent">
+            <span className="text-xl font-extrabold tracking-wider">
               Vibe<span className="text-primary">Pulse</span>
             </span>
           </div>
           <nav className="hidden md:flex space-x-6 lg:space-x-8 items-center">
             <Link 
               href={"#upcoming-events"}
-              className="text-lg font-semibold transition duration-200 text-accent"
+              className="text-lg font-semibold transition duration-200"
             >
               Find Event
             </Link>
             <Link 
               href={"/organizer/login"}
-              className="flex items-center text-lg font-semibold transition duration-200 text-accent"
+              className="flex items-center text-lg font-semibold transition duration-200"
             >
               <Plus className="w-5 h-5 mr-1" />
               Create Event
@@ -41,7 +41,7 @@ const Navbar = () => {
             <Link
               href={"/signin"} 
               className="flex items-center px-3 py-1.5 text-base font-semibold 
-                          rounded-full transition duration-200 text-secondary"
+                          rounded-full transition duration-200"
             >
               <LogIn className="w-5 h-5 mr-1 text-secondary" />
               Sign In

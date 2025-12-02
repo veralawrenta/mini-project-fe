@@ -20,7 +20,7 @@ const categoryOptions: { id: string; label: string }[] = [
   { id: "all", label: "All Categories" },
   { id: Category.ENTERTAINMENT, label: "Entertainment" },
   { id: Category.BUSINESS, label: "Business" },
-  { id: Category.SPORTS, label: "Sports" },
+  { id: Category.SPORT, label: "Sport" },
   { id: Category.ART, label: "Art" },
   { id: Category.EDUCATION, label: "Education" },
 ];
@@ -80,12 +80,12 @@ const EventList = () => {
       <div>
         <h3
           id="upcoming-events"
-          className="text-secondary font-bold text-3xl mb-4"
+          className="font-bold text-3xl mb-4"
         >
           Upcoming Events
         </h3>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
         {isPending && (
           <div className="col-span-3 text-center h-[200px]">
             <p className="text-primary">Loading...</p>

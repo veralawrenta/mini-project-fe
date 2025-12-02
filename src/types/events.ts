@@ -3,7 +3,7 @@ import { User } from "./user";
 export enum Category {
     ENTERTAINMENT = "ENTERTAINMENT",
     EDUCATION = "EDUCATION",
-    SPORTS = "SPORTS",
+    SPORT = "SPORT",
     BUSINESS = "BUSINESS",
     ART = "ART",
 }

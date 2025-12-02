@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 
 const Home = () => {
   return (
-    <div className="bg-black">
+    <div className="">
       <Navbar />
       <HeroSection />
       <EventList />

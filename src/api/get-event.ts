@@ -1,4 +1,3 @@
-
 import { Events } from "@/types/events";
 import { notFound } from "next/navigation";
 
