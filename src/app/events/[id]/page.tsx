@@ -3,9 +3,11 @@
 import { axiosInstance } from "@/lib/axios";
 import { Events } from "@/types/events";
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/router";
 import EventDetailMain from "./components/EventDetails";
-import EventTicketCard from "./components/TicketCard";
+import EventTicketCard from "./components/TicketEventCard";
 
 const EventDetailPage = () => {
   const params = useParams();
@@ -20,18 +22,22 @@ const EventDetailPage = () => {
   });
 
   if (isLoading || !event) {
-    return <div className="text-center py-20 text-primary font-bold">Loading...</div>;
+    return (
+      <div className="text-center py-20 text-primary font-bold">Loading...</div>
+    );
   }
 
   return (
     <div className="container mx-auto px-4 py-12 lg:flex lg:gap-12">
-
       <div className="lg:flex-1">
         <EventDetailMain event={event} />
       </div>
 
       <div className="lg:w-96 mt-8 lg:mt-0">
-        <EventTicketCard price={event.price} availableSeats={event.availableSeats} />
+        <EventTicketCard
+          price={event.price}
+          availableSeats={event.availableSeats}
+        />
       </div>
     </div>
   );

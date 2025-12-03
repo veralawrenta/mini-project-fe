@@ -135,11 +135,13 @@ const FillEventForm = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 mt-6 pb-20">
+    <div id="createEvent" className="container mx-auto px-4 mt-6 pb-20">
       <form id="form-write" onSubmit={form.handleSubmit(onSubmit)}>
         <FieldGroup>
           <FieldSet>
-            <FieldLegend className="font-extrabold text-primary text-6xl text-center">Create Your Event Here</FieldLegend>
+            <FieldLegend className="font-extrabold text-primary text-6xl text-center">
+              Create Your Event Here
+            </FieldLegend>
             <FieldDescription className="font-semibold text-center text-secondary-foreground">
               Please fill all necessary information to create your event.
             </FieldDescription>
@@ -149,9 +151,15 @@ const FillEventForm = () => {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="title" className="font-bold">Title</FieldLabel>
-                  <Input {...field} id="title" placeholder="Title" 
-                  className="border-primary hover:border-secondary-foreground"/>
+                  <FieldLabel htmlFor="title" className="font-bold">
+                    Title
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    id="title"
+                    placeholder="Title"
+                    className="border-primary hover:border-secondary-foreground"
+                  />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -165,8 +173,11 @@ const FillEventForm = () => {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel>Description</FieldLabel>
-                  <Textarea {...field} placeholder="Description" 
-                  className="border-primary hover:border-secondary-foreground"/>
+                  <Textarea
+                    {...field}
+                    placeholder="Description"
+                    className="border-primary hover:border-secondary-foreground"
+                  />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -179,22 +190,24 @@ const FillEventForm = () => {
               control={form.control}
               render={({ field }) => (
                 <Field>
-                <FieldLabel htmlFor="City">
-                    Category
-                  </FieldLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <SelectTrigger id="event-category"
-                  className="border-primary hover:border-secondary-foreground">
-                    <SelectValue placeholder="Select event category" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="ENTERTAINMENT">ENTERTAINMENT</SelectItem>
-                    <SelectItem value="BUSINESS">BUSINESS</SelectItem>
-                    <SelectItem value="SPORTS">SPORTS</SelectItem>
-                    <SelectItem value="ART">ART</SelectItem>
-                    <SelectItem value="EDUCATION">EDUCATION</SelectItem>
-                  </SelectContent>
-                </Select>
+                  <FieldLabel htmlFor="City">Category</FieldLabel>
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <SelectTrigger
+                      id="event-category"
+                      className="border-primary hover:border-secondary-foreground"
+                    >
+                      <SelectValue placeholder="Select event category" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="ENTERTAINMENT">
+                        ENTERTAINMENT
+                      </SelectItem>
+                      <SelectItem value="BUSINESS">BUSINESS</SelectItem>
+                      <SelectItem value="SPORTS">SPORTS</SelectItem>
+                      <SelectItem value="ART">ART</SelectItem>
+                      <SelectItem value="EDUCATION">EDUCATION</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </Field>
               )}
             />
@@ -205,8 +218,11 @@ const FillEventForm = () => {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel>Venue</FieldLabel>
-                  <Input {...field} placeholder="Venue" 
-                  className="border-primary hover:border-secondary-foreground"/>
+                  <Input
+                    {...field}
+                    placeholder="Venue"
+                    className="border-primary hover:border-secondary-foreground"
+                  />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -220,8 +236,11 @@ const FillEventForm = () => {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel>Address</FieldLabel>
-                  <Input {...field} placeholder="Address" 
-                 className="border-primary hover:border-secondary-foreground"/>
+                  <Input
+                    {...field}
+                    placeholder="Address"
+                    className="border-primary hover:border-secondary-foreground"
+                  />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -234,23 +253,23 @@ const FillEventForm = () => {
               control={form.control}
               render={({ field }) => (
                 <Field>
-                <FieldLabel htmlFor="City">
-                    City
-                  </FieldLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <SelectTrigger id="event-city"
-                  className="border-primary hover:border-secondary-foreground">
-                    <SelectValue placeholder="Select city" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="MEDAN">MEDAN</SelectItem>
-                    <SelectItem value="JAKARTA">JAKARTA</SelectItem>
-                    <SelectItem value="YOGYAKARTA">YOGYAKARTA</SelectItem>
-                    <SelectItem value="DENPASAR">DENPASAR</SelectItem>
-                    <SelectItem value="LOMBOK">LOMBOK</SelectItem>
-                    <SelectItem value="TIMIKA">TIMIKA</SelectItem>
-                  </SelectContent>
-                </Select>
+                  <FieldLabel htmlFor="City">City</FieldLabel>
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <SelectTrigger
+                      id="event-city"
+                      className="border-primary hover:border-secondary-foreground"
+                    >
+                      <SelectValue placeholder="Select city" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="MEDAN">MEDAN</SelectItem>
+                      <SelectItem value="JAKARTA">JAKARTA</SelectItem>
+                      <SelectItem value="YOGYAKARTA">YOGYAKARTA</SelectItem>
+                      <SelectItem value="DENPASAR">DENPASAR</SelectItem>
+                      <SelectItem value="LOMBOK">LOMBOK</SelectItem>
+                      <SelectItem value="TIMIKA">TIMIKA</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </Field>
               )}
             />
@@ -270,7 +289,7 @@ const FillEventForm = () => {
                       type="datetime-local"
                       value={value}
                       onChange={(e) => field.onChange(new Date(e.target.value))}
-                    className="border-primary hover:border-secondary-foreground"
+                      className="border-primary hover:border-secondary-foreground"
                     />
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -286,8 +305,11 @@ const FillEventForm = () => {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel>Start Time</FieldLabel>
-                  <Input {...field} type="time" 
-                  className="border-primary hover:border-secondary-foreground"/>
+                  <Input
+                    {...field}
+                    type="time"
+                    className="border-primary hover:border-secondary-foreground"
+                  />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -301,8 +323,11 @@ const FillEventForm = () => {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel>End Time</FieldLabel>
-                  <Input {...field} type="time" 
-                  className="border-primary hover:border-secondary-foreground"/>
+                  <Input
+                    {...field}
+                    type="time"
+                    className="border-primary hover:border-secondary-foreground"
+                  />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -314,19 +339,51 @@ const FillEventForm = () => {
               control={form.control}
               render={({ field }) => (
                 <Field>
-                <FieldLabel htmlFor="City">
-                    Venue Type
-                  </FieldLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <SelectTrigger id="venue-type"
-                  className="border-primary hover:border-secondary-foreground">
-                    <SelectValue placeholder="Select venue type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="FREE">FREE</SelectItem>
-                    <SelectItem value="PAID">PAID</SelectItem>
-                  </SelectContent>
-                </Select>
+                  <FieldLabel htmlFor="City">Venue Type</FieldLabel>
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <SelectTrigger
+                      id="venue-type"
+                      className="border-primary hover:border-secondary-foreground"
+                    >
+                      <SelectValue placeholder="Select venue type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="FREE">FREE</SelectItem>
+                      <SelectItem value="PAID">PAID</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </Field>
+              )}
+            />
+
+            <Controller
+              name="price"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel>Price</FieldLabel>
+                  <Input
+                    {...field}
+                    placeholder="Price"
+                    className="border-primary hover:border-secondary-foreground"
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Controller
+              name="availableSeats"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel>Seat Availability</FieldLabel>
+                  <Input {...field} placeholder="availableSeats" 
+                 className="border-primary hover:border-secondary-foreground"/>
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
                 </Field>
               )}
             />
@@ -343,7 +400,7 @@ const FillEventForm = () => {
                       const file = e.target.files?.[0];
                       field.onChange(file ?? undefined);
                     }}
-                  className="border-primary hover:border-secondary-foreground"
+                    className="border-primary hover:border-secondary-foreground"
                   />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
