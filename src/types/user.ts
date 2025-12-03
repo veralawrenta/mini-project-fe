@@ -7,7 +7,8 @@ export interface User {
     name: string;
     email: string;
     avatar?: string;
-    role: Role
+    role: Role;
+    point: number;
     createdAt: Date;
     updatedAt: Date;
     deletedAt?: Date | null;
