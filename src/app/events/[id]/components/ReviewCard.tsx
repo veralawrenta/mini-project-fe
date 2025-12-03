@@ -1,6 +1,4 @@
-// components/ReviewCard.tsx
-
-"use client";
+/*"use client";
 
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button"; 
@@ -116,4 +114,4 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ eventId, eventName, isEventOver
   );
 };
 
-export default ReviewCard;
+export default ReviewCard*/
